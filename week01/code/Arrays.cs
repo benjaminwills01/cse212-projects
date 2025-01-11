@@ -6,15 +6,21 @@ public static class Arrays
     /// integer greater than 0.
     /// </summary>
     /// <returns>array of doubles that are the multiples of the supplied number</returns>
-    public static double[] MultiplesOf(double number, int length)
-    {
-        // TODO Problem 1 Start
-        // Remember: Using comments in your program, write down your process for solving this problem
-        // step by step before you write the code. The plan should be clear enough that it could
-        // be implemented by another person.
+public static double[] MultiplesOf(double number, int length)
+{
+    // Create an array of the specified length
+    double[] multiples = new double[length];
 
-        return []; // replace this return statement with your own
+    // Loop through the array and calculate the multiples of the given number
+    for (int i = 0; i < length; i++)
+    {
+        multiples[i] = number * (i + 1); // Multiply the number by (i + 1) to get the multiple
     }
+
+    // Return the array of multiples
+    return multiples;
+}
+
 
     /// <summary>
     /// Rotate the 'data' to the right by the 'amount'.  For example, if the data is 
@@ -24,10 +30,17 @@ public static class Arrays
     /// Because a list is dynamic, this function will modify the existing data list rather than returning a new list.
     /// </summary>
     public static void RotateListRight(List<int> data, int amount)
-    {
-        // TODO Problem 2 Start
-        // Remember: Using comments in your program, write down your process for solving this problem
-        // step by step before you write the code. The plan should be clear enough that it could
-        // be implemented by another person.
-    }
+{
+    // If the amount is greater than or equal to the list size, we can take the modulo to handle wrapping
+    amount = amount % data.Count;
+
+    // Extract the last 'amount' elements and move them to the front
+    List<int> lastElements = data.GetRange(data.Count - amount, amount);
+    List<int> remainingElements = data.GetRange(0, data.Count - amount);
+
+    // Clear the original list and add the rotated elements
+    data.Clear();
+    data.AddRange(lastElements);
+    data.AddRange(remainingElements);
+}
 }
