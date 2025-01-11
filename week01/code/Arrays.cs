@@ -43,4 +43,5 @@ public static double[] MultiplesOf(double number, int length)
     data.AddRange(lastElements);
     data.AddRange(remainingElements);
 }
+
 }
